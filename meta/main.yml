@@ -1,5 +1,6 @@
 galaxy_info:
   author: marica.antonacci@gmail.com
+  role_name: docker
   description: Install docker engine
   company: INDIGO-DataCloud
   license: Apache
