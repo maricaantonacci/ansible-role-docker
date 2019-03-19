@@ -1,38 +1,30 @@
-Role Name
+Docker Role
 =========
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Install docker-engine
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- `docker_bridge_ip_cidr` (optional): IP to be assigned to the docker bridge. Using standard CIDR notation, e.g. 192.168.1.5/24
+- `docker_bridge_mtu` (optional): override the maximum packet length on docker0
+- `docker_dns` (list, optional): override DNS servers to use
+- `docker_dns_search` (list, optional): sets the domain names that are searched
+- `docker_regitry_mirror`( optional): URL of the registry mirror to be configured
+- `docker_storage_driver` (optional): Storage driver to use
+- `docker_log_driver` (optional): Log driver to use. Default: 'json-file'
+- `docker_logs_opts` (optional): Log driver options. Default: { 'max-file': '3', 'max-size': '100m' }
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: indigo-dc.docker, docker_bridge_ip_cidr: "172.0.17.1/24" }
 
 License
 -------
 
-BSD
+Apache Licence v2 [1]
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[1] http://www.apache.org/licenses/LICENSE-2.0
