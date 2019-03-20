@@ -43,5 +43,6 @@
 - name: "Configure docker"
   include: configure.yml
 
-- include_tasks: docker-compose.yml
+- name: "Install docker-compose"
+  include: docker-compose.yml
   when: docker_install_compose
