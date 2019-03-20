@@ -9,10 +9,10 @@
     - "{{ python_dev_package }}"
     - "{{ python_setuptools_package }}"
 
-      #- name: "[Common] Install pip"
-      #  easy_install:
-      #    name=pip
-      #    state=present
+- name: "[Common] Install pip"
+  easy_install:
+    name=pip
+    state=present
 
 - name: "[Common] Set docker-py package to be installed"
   set_fact:
@@ -34,12 +34,8 @@
 
 - name: "[Common] Install Docker CE package"
   package:
-    name={{ item }}
+    name=docker-ce
     state=present
-  with_items:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
 
 - name: "[Common] Ensure docker-ce is enabled at boot time"
   service: name=docker enabled=yes
